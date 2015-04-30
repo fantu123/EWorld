@@ -15,6 +15,8 @@
 
 @end
 @interface ThreeCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *thtwbtn;
+@property (weak, nonatomic) IBOutlet UIButton *thonebtn;
 
 @property (weak, nonatomic) IBOutlet UILabel *thlableone;
 @property (weak, nonatomic) IBOutlet UILabel *thlabletwo;

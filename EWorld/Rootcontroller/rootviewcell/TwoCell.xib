@@ -10,7 +10,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="129"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo.png" id="brw-3q-FuL">
@@ -48,7 +48,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NcH-uW-I3I">
-                        <rect key="frame" x="161" y="0.0" width="158" height="130"/>
+                        <rect key="frame" x="161.00000002772754" y="0.0" width="158" height="130"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <state key="normal">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,6 +62,8 @@
             <connections>
                 <outlet property="nameone" destination="uQu-ll-fqW" id="7dR-u0-Aok"/>
                 <outlet property="nametwo" destination="JNu-EY-Myg" id="pBs-Hc-PSk"/>
+                <outlet property="teonebtn" destination="fob-bc-B3B" id="I7n-lB-Mv1"/>
+                <outlet property="twtwbtn" destination="NcH-uW-I3I" id="UZF-no-dIb"/>
             </connections>
             <point key="canvasLocation" x="347" y="335"/>
         </tableViewCell>

@@ -11,6 +11,7 @@
 @protocol onecelldelegate <NSObject>
 
 -(void)fironebtnclick:(id)sender;
+
 -(void)firtwobtnclick:(id)sender;
 
 @end

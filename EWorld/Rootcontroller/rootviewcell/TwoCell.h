@@ -15,6 +15,8 @@
 
 @end
 @interface TwoCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *teonebtn;
+@property (weak, nonatomic) IBOutlet UIButton *twtwbtn;
 @property (weak, nonatomic) IBOutlet UILabel *nameone;
 @property (weak, nonatomic) IBOutlet UILabel *nametwo;
 @property (assign, nonatomic) id<twocelldelegate>delegate;

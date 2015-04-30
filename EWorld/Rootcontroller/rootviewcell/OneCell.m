@@ -22,16 +22,18 @@
 - (IBAction)clicktwobtn:(id)sender {
     
     [self.superview sendSubviewToBack:self];
-    if ([delegate respondsToSelector:@selector(fironebtnclick:)]) {
-        [delegate fironebtnclick:self];
+    if ([delegate respondsToSelector:@selector(firtwobtnclick:)]) {
+        [delegate firtwobtnclick:self];
     }
     
 }
 - (IBAction)clickonebtn:(id)sender {
     [self.superview sendSubviewToBack:self];
-    if ([delegate respondsToSelector:@selector(firtwobtnclick:)]) {
-        [delegate firtwobtnclick:self];
+    if ([delegate respondsToSelector:@selector(fironebtnclick:)]) {
+        [delegate fironebtnclick:self];
     }
+
+    
 }
 
 @end

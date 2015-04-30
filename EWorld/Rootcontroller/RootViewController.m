@@ -48,7 +48,8 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+//    return 10;
+    return  arraydata.count/2+1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -67,37 +68,43 @@
         maincell.delegate = self;
         return maincell;
     }
-    else if (indexPath.row==1||indexPath.row==4||indexPath.row==7)
+    else if (indexPath.row%3==1)
     {
         OneCell * onecell = [tableView dequeueReusableCellWithIdentifier:@"onecell"];
         if (onecell==nil) {
             onecell = [[[NSBundle mainBundle]loadNibNamed:@"OneCell" owner:self options:nil]lastObject];
             onecell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
+        onecell.btnone.tag = indexPath.row+10000;
+        onecell.btntwo.tag = indexPath.row+20000;
         onecell.delegate=self;
         onecell.onename.text = [arraydata objectAtIndex:indexPath.row*2-1];
         onecell.twoname.text = [arraydata objectAtIndex:indexPath.row*2];
         return onecell;
     }
-    else if (indexPath.row==2||indexPath.row==5||indexPath.row==8)
+    else if (indexPath.row%3==2)
     {
         TwoCell * Tcell = [tableView dequeueReusableCellWithIdentifier:@"twocell"];
         if (Tcell==nil) {
             Tcell = [[[NSBundle mainBundle]loadNibNamed:@"TwoCell" owner:self options:nil]lastObject];
             Tcell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
+        Tcell.teonebtn.tag = indexPath.row+10000;
+        Tcell.twtwbtn.tag = indexPath.row+20000;
         Tcell.nameone.text = [arraydata objectAtIndex:indexPath.row*2-1];
          Tcell.nametwo .text = [arraydata objectAtIndex:indexPath.row*2];
         Tcell.delegate=self;
         return Tcell;
     }
-    else if (indexPath.row==3||indexPath.row==6||indexPath.row==9)
+    else if (indexPath.row%3==0)
     {
         ThreeCell * THcell = [tableView dequeueReusableCellWithIdentifier:@"threcell"];
         if (THcell==nil) {
             THcell = [[[NSBundle mainBundle]loadNibNamed:@"ThreeCell" owner:self options:nil]lastObject];
             THcell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
+        THcell.thonebtn.tag = indexPath.row+10000;
+        THcell.thtwbtn.tag = indexPath.row+20000;
         THcell.delegate= self;
         THcell.thlableone.text = [arraydata objectAtIndex:indexPath.row*2-1];
         THcell.thlabletwo .text = [arraydata objectAtIndex:indexPath.row*2];
@@ -119,40 +126,64 @@
     rootlist.navtitie = [arraydata objectAtIndex:0];
     [self.navigationController pushViewController:rootlist animated:YES];
 }
--(void)fironebtnclick:(id)sender
+-(void)fironebtnclick:(UIButton*)sender
 {
+     OneCell * onecell = (OneCell *)sender;
+  
+    NSLog(@"%ld",(long)onecell.btnone.tag);
+
     RootallViewController * rootlist = [[RootallViewController alloc]initWithNibName:@"RootallViewController" bundle:nil];
-    rootlist.navtitie = [arraydata objectAtIndex:0];
+    rootlist.navtitie = [arraydata objectAtIndex:(onecell.btnone.tag-10000)*2-1 ];
     [self.navigationController pushViewController:rootlist animated:YES];
 }
 -(void)firtwobtnclick:(id)sender
 {
+    OneCell * onecell = (OneCell *)sender;
+    
+    NSLog(@"%ld",(long)onecell.btnone.tag);
+    
     RootallViewController * rootlist = [[RootallViewController alloc]initWithNibName:@"RootallViewController" bundle:nil];
-    rootlist.navtitie = [arraydata objectAtIndex:0];
+    rootlist.navtitie = [arraydata objectAtIndex:(onecell.btntwo.tag-20000)*2];
     [self.navigationController pushViewController:rootlist animated:YES];
 }
 -(void)seonebtnclick:(id)sender
 {
+    TwoCell * twocell = (TwoCell *)sender;
+    
+    NSLog(@"%ld",(long)twocell.teonebtn.tag);
+
     RootallViewController * rootlist = [[RootallViewController alloc]initWithNibName:@"RootallViewController" bundle:nil];
-    rootlist.navtitie = [arraydata objectAtIndex:0];
+    rootlist.navtitie = [arraydata objectAtIndex:(twocell.teonebtn.tag-10000)*2-1];
     [self.navigationController pushViewController:rootlist animated:YES];
 }
 -(void)setwobtnclick:(id)sender
 {
+    TwoCell * twocell = (TwoCell *)sender;
+    
+    NSLog(@"%ld",(long)twocell.teonebtn.tag);
+    
     RootallViewController * rootlist = [[RootallViewController alloc]initWithNibName:@"RootallViewController" bundle:nil];
-    rootlist.navtitie = [arraydata objectAtIndex:0];
+    rootlist.navtitie = [arraydata objectAtIndex:(twocell.twtwbtn.tag-20000)*2];
     [self.navigationController pushViewController:rootlist animated:YES];
 }
 -(void)thonebtnclick:(id)sender
 {
+    ThreeCell * thcell = (ThreeCell *)sender;
+    
+    NSLog(@"%ld",(long)thcell.thonebtn.tag);
+    
     RootallViewController * rootlist = [[RootallViewController alloc]initWithNibName:@"RootallViewController" bundle:nil];
-    rootlist.navtitie = [arraydata objectAtIndex:0];
+    rootlist.navtitie = [arraydata objectAtIndex:(thcell.thonebtn.tag-10000)*2-1];
     [self.navigationController pushViewController:rootlist animated:YES];
 }
 -(void)thtwobtnclick:(id)sender
 {
+    
+    ThreeCell * thcell = (ThreeCell *)sender;
+    
+    NSLog(@"%ld",(long)thcell.thonebtn.tag);
     RootallViewController * rootlist = [[RootallViewController alloc]initWithNibName:@"RootallViewController" bundle:nil];
-    rootlist.navtitie = [arraydata objectAtIndex:0];
+    rootlist.navtitie = [arraydata objectAtIndex:(thcell.thtwbtn.tag-20000)*2];
     [self.navigationController pushViewController:rootlist animated:YES];
 }
 - (void)didReceiveMemoryWarning {
